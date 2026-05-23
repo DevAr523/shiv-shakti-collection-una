@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Orders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="logo">
+            Shiv Shakti Admin
+        </div>
+
+        <div>
+
+            <button onclick="goAdmin()">
+                Admin Panel
+            </button>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="orders-page">
+
+        <div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+    <h1>
+        Customer Orders
+    </h1>
+
+    <button onclick="clearOrders()">
+        Clear All Orders
+    </button>
+
+</div>
+
+        <div id="orders-container">
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

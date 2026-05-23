@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="logo">
+            Admin Panel
+        </div>
+
+        <div>
+            <button onclick="goOrders()">
+                View Orders
+            </button>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+        </div>
+
+    </div>
+
+    <div class="admin-container">
+
+        <h2>Add / Edit Product</h2>
+
+        <input
+            id="name"
+            placeholder="Product Name"
+        >
+
+        <input
+            id="price"
+            type="number"
+            placeholder="Price"
+        >
+
+        <input
+    id="image"
+    type="file"
+>
+
+        <input
+            id="category"
+            placeholder="Category"
+        >
+
+        <button onclick="saveProduct()">
+            Save Product
+        </button>
+
+        <hr>
+
+        <h2>Products</h2>
+
+        <div id="list">
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
