@@ -280,10 +280,10 @@ app.post(
                 category:
                 req.body.category,
 
-                image:
+               image:
                 req.file
                 ?
-                `http://localhost:5000/uploads/${req.file.filename}`
+                `https://shiv-shakti-backend-h9yl.onrender.com/uploads/${req.file.filename}`
                 :
                 ""
             });
@@ -347,7 +347,7 @@ app.put(
                     image:
                     req.file
                     ?
-                    `http://localhost:5000/uploads/${req.file.filename}`
+                    `https://shiv-shakti-backend-h9yl.onrender.com/uploads/${req.file.filename}`
                     :
                     oldProduct.image
                 },

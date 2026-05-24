@@ -9,22 +9,47 @@
 
 <script>
 async function login() {
-    const res = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({
-            username: username.value,
-            password: password.value
-        })
-    });
 
-    const data = await res.json();
+    const res =
+    await fetch(
+        "https://shiv-shakti-backend-h9yl.onrender.com/login",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+                username:
+                username.value,
+
+                password:
+                password.value
+            })
+        }
+    );
+
+    const data =
+    await res.json();
 
     if (res.ok) {
-        localStorage.setItem("token", data.token);
-        window.location.href = "admin.html";
+
+        localStorage.setItem(
+            "token",
+            data.token
+        );
+
+        window.location.href =
+        "admin.html";
+
     } else {
-        alert("Login failed");
+
+        alert(
+            data.message
+            || "Login failed"
+        );
     }
 }
 </script>

@@ -20,6 +20,75 @@ if (
 }
 
 // ==========================
+// Login
+//===========================
+async function login() {
+
+    const username =
+    document.getElementById(
+        "username"
+    ).value;
+
+    const password =
+    document.getElementById(
+        "password"
+    ).value;
+
+    try {
+
+        const res =
+        await fetch(
+            "https://shiv-shakti-backend-h9yl.onrender.com/login",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
+
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }
+        );
+
+        const data =
+        await res.json();
+
+        if (res.ok) {
+
+            localStorage.setItem(
+                "token",
+                data.token
+            );
+
+            alert(
+                "Login Success ✅"
+            );
+
+            window.location.href =
+            "admin.html";
+
+        } else {
+
+            alert(
+                data.message
+            );
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert(
+            "Login failed ❌"
+        );
+    }
+}
+
+// ==========================
 // GLOBAL VARIABLES
 // ==========================
 let products = [];
