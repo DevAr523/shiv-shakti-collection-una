@@ -63,7 +63,7 @@ app.use(
 // DATABASE CONNECTION
 // ==========================
 mongoose.connect(
-'mongodb+srv://admin:Arshik%40%401@cluster0.ucbudkv.mongodb.net/shivshakti?retryWrites=true&w=majority'
+'mongodb+srv://admin:Arshik%40%401@cluster0.ucbudkv.mongodb.net/shivshakti?retryWrites=true&w=majority&appName=Cluster0'
 )
 .then(async () => {
     console.log("MongoDB Connected ✅");
