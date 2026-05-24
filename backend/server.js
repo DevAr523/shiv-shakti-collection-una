@@ -62,7 +62,9 @@ app.use(
 // ==========================
 // DATABASE CONNECTION
 // ==========================
-mongoose.connect('mongodb://127.0.0.1:27017/shivshakti')
+mongoose.connect(
+'mongodb+srv://admin:Arshik%40%401@cluster0.ucbudkv.mongodb.net/shivshakti?retryWrites=true&w=majority'
+)
 .then(async () => {
     console.log("MongoDB Connected ✅");
     await createAdmin();
