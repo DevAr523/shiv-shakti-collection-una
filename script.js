@@ -43,7 +43,7 @@ async function fetchProducts() {
 
         const res =
         await fetch(
-            "http://localhost:5000/products"
+            "https://shiv-shakti-backend-h9yl.onrender.com/products"
         );
 
         products =
@@ -655,7 +655,7 @@ async function placeOrder() {
 
         const res =
         await fetch(
-            "http://localhost:5000/orders",
+            "https://shiv-shakti-backend-h9yl.onrender.com/orders",
             {
                 method:
                 "POST",
@@ -746,9 +746,9 @@ async function saveProduct() {
     const url =
     editingId
     ?
-    `http://localhost:5000/products/${editingId}`
+    `https://shiv-shakti-backend-h9yl.onrender.com/products/${editingId}`
     :
-    `http://localhost:5000/products`;
+    `https://shiv-shakti-backend-h9yl.onrender.com/products`;
 
     const method =
     editingId
@@ -954,7 +954,7 @@ async function deleteProduct(
 
         const res =
         await fetch(
-            `http://localhost:5000/products/${id}`,
+            `https://shiv-shakti-backend-h9yl.onrender.com/products/${id}`,
             {
                 method:
                 "DELETE",
@@ -1006,7 +1006,7 @@ async function loadOrders() {
 
         const res =
         await fetch(
-            "http://localhost:5000/orders"
+            "https://shiv-shakti-backend-h9yl.onrender.com/orders"
         );
 
         const orders =
@@ -1187,7 +1187,7 @@ async function clearOrders() {
     try {
 
         await fetch(
-            "http://localhost:5000/orders",
+            "https://shiv-shakti-backend-h9yl.onrender.com/orders",
             {
                 method:
                 "DELETE"
