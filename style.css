@@ -403,14 +403,52 @@ body {
 }
 
 /*for login page */
+/* LOGIN PAGE */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+
+    box-shadow:
+    0 2px 10px rgba(0,0,0,0.2);
 }
+
 .loginlogo {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: bold;
-    cursor: pointer;
     color: #ff9900;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#username,
+#password {
+    padding: 12px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-container button {
+    background: #ff9900;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
