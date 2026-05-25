@@ -70,7 +70,7 @@ multer({
 // DATABASE CONNECTION
 // ==========================
 mongoose.connect(
-'mongodb+srv://admin:Arshik%40%401@cluster0.ucbudkv.mongodb.net/shivshakti?retryWrites=true&w=majority&appName=Cluster0'
+'mongodb://admin:Arshik%40%401@ac-2uskefw-shard-00-00.ucbudkv.mongodb.net:27017,ac-2uskefw-shard-00-01.ucbudkv.mongodb.net:27017,ac-2uskefw-shard-00-02.ucbudkv.mongodb.net:27017/shivshakti?ssl=true&replicaSet=atlas-o2cwyx-shard-0&authSource=admin&appName=Cluster0'
 )
 .then(async () => {
     console.log("MongoDB Connected ✅");
@@ -301,7 +301,7 @@ app.post(
 
         } catch (error) {
 
-            console.log(error);
+            console.log("Product Save Error");
 
             res.status(500).json({
                 message:
