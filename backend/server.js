@@ -16,6 +16,8 @@ const {
 
 require("dotenv")
 .config();
+console.log("Cloud name:", process.env.CLOUDINARY_CLOUD_NAME);
+console.log("API Key:", process.env.CLOUDINARY_API_KEY);
 const app = express();
 
 const SECRET_KEY = "shivshakti_secret";
@@ -43,22 +45,12 @@ app.use(express.json());
 // IMAGE UPLOAD SETUP
 // ==========================
 
-const storage =
-new CloudinaryStorage({
-
+const storage = new CloudinaryStorage({
     cloudinary,
-
     params: {
-
-        folder:
-        "shiv-shakti-products",
-
-        allowed_formats: [
-            "jpg",
-            "jpeg",
-            "png",
-            "webp"
-        ]
+        folder: "shiv-shakti-products",
+        resource_type: "image",   // 🔥 ADD THIS LINE
+        allowed_formats: ["jpg", "jpeg", "png", "webp"]
     }
 });
 
