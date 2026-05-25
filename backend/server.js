@@ -152,7 +152,7 @@ async function createAdmin() {
             );
 
         await Admin.create({
-            username: "admin",
+            username: "ShivShaktiAdmin",
             password: hashedPassword
         });
 
