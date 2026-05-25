@@ -140,19 +140,19 @@ async function createAdmin() {
 
     const existing =
         await Admin.findOne({
-            username: "ShivShaktiAdmin"
+            username: "Admin"
         });
 
     if (!existing) {
 
         const hashedPassword =
             await bcrypt.hash(
-                "Arshik123..",
+                "1234",
                 10
             );
 
         await Admin.create({
-            username: "ShivShaktiAdmin",
+            username: "Admin",
             password: hashedPassword
         });
 
