@@ -405,15 +405,6 @@ body {
 /*for login page */
 /* LOGIN PAGE */
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f3f3f3;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
 .login-container {
     background: white;
