@@ -4,10 +4,35 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
-const path = require('path');
+
+const cloudinary =
+require("cloudinary").v2;
+
+const {
+    CloudinaryStorage
+} = require(
+    "multer-storage-cloudinary"
+);
+
+require("dotenv")
+.config();
 const app = express();
 
 const SECRET_KEY = "shivshakti_secret";
+cloudinary.config({
+
+    cloud_name:
+    process.env
+    .CLOUDINARY_CLOUD_NAME,
+
+    api_key:
+    process.env
+    .CLOUDINARY_API_KEY,
+
+    api_secret:
+    process.env
+    .CLOUDINARY_API_SECRET
+});
 
 // ==========================
 // MIDDLEWARE
@@ -17,34 +42,23 @@ app.use(express.json());
 // ==========================
 // IMAGE UPLOAD SETUP
 // ==========================
-const storage = multer.diskStorage({
 
-    destination: function (
-        req,
-        file,
-        cb
-    ) {
+const storage =
+new CloudinaryStorage({
 
-        cb(
-            null,
-            'uploads/'
-        );
-    },
+    cloudinary,
 
-    filename: function (
-        req,
-        file,
-        cb
-    ) {
+    params: {
 
-        cb(
-            null,
-            Date.now()
-            +
-            path.extname(
-                file.originalname
-            )
-        );
+        folder:
+        "shiv-shakti-products",
+
+        allowed_formats: [
+            "jpg",
+            "jpeg",
+            "png",
+            "webp"
+        ]
     }
 });
 
@@ -52,13 +66,6 @@ const upload =
 multer({
     storage
 });
-
-app.use(
-    '/uploads',
-    express.static(
-        'uploads'
-    )
-);
 // ==========================
 // DATABASE CONNECTION
 // ==========================
@@ -283,7 +290,7 @@ app.post(
                image:
                 req.file
                 ?
-                `https://shiv-shakti-backend-h9yl.onrender.com/uploads/${req.file.filename}`
+                req.file.path
                 :
                 ""
             });
@@ -347,7 +354,7 @@ app.put(
                     image:
                     req.file
                     ?
-                    `https://shiv-shakti-backend-h9yl.onrender.com/uploads/${req.file.filename}`
+                    req.file.path
                     :
                     oldProduct.image
                 },
